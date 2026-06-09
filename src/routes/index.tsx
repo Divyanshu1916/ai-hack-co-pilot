@@ -3,7 +3,7 @@ import { Logo } from "@/components/Logo";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { Button } from "@/components/ui/button";
 import {
-  Lightbulb, FileText, Kanban, MessageSquare, Presentation, Users,
+  Lightbulb, FileText, Kanban, MessageSquare, Presentation, Users, Gavel,
   ArrowRight, Github, Linkedin, Sparkles, Zap, Clock, Trophy, Check,
 } from "lucide-react";
 
@@ -25,6 +25,7 @@ const features: { icon: any; title: string; desc: string; to?: string; params?: 
   { icon: Kanban, title: "AI Task Board", desc: "Auto-generated tasks, labeled by role, re-prioritized as the clock ticks.", to: "/room/$id/tasks", params: { id: "neon-2026" } },
   { icon: MessageSquare, title: "In-Context Assistant", desc: "Answers grounded in your brief, stack, and current tasks — not generic snippets.", to: "/room/$id/chat", params: { id: "neon-2026" } },
   { icon: Presentation, title: "Pitch Studio", desc: "One click to a 5-slide deck with judge-mode Q&A simulation.", to: "/room/$id/pitch", params: { id: "neon-2026" } },
+  { icon: Gavel, title: "AI Judge Simulator", desc: "Rehearse under pressure with 5 realistic judge questions and AI-scored feedback.", to: "/room/$id/judge-sim", params: { id: "neon-2026" } },
   { icon: Users, title: "Team Matching", desc: "Solo hackers find compatible teams by skill, timezone, and interest.", to: "/dashboard" },
 ];
 
