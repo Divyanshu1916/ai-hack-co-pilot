@@ -630,7 +630,7 @@ function RoomCard({ room }: { room: (typeof rooms)[number] }) {
 
   return (
     <Link to="/room/$id" params={{ id: room.id }} className="group">
-      <div className="glass rounded-2xl p-5 h-full hover:-translate-y-1 hover:glow transition-all duration-300">
+      <div className="glass aurora-border rounded-2xl p-5 h-full hover:-translate-y-1 hover:glow transition-all duration-300">
         <div className="flex items-start justify-between mb-3">
           <div
             className={`text-[10px] px-2 py-0.5 rounded-full border uppercase tracking-wider font-semibold ${statusStyle}`}
