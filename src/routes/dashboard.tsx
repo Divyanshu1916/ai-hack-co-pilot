@@ -149,7 +149,7 @@ function StatCard({
   trend?: string;
 }) {
   return (
-    <div className="glass rounded-2xl p-5 hover:-translate-y-0.5 transition-all duration-300">
+    <div className="glass aurora-border rounded-2xl p-5 hover:-translate-y-0.5 transition-all duration-300">
       <div className="flex items-start justify-between">
         <div className="h-10 w-10 rounded-xl gradient-bg grid place-items-center shrink-0">
           <Icon className="h-5 w-5 text-primary-foreground" />
