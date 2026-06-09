@@ -216,6 +216,13 @@ function Dashboard() {
           toast.error("No active room. Create or join a room first.");
         }
         break;
+      case "win":
+        if (firstActiveRoom) {
+          navigate({ to: "/room/$id/win-analyzer", params: { id: firstActiveRoom.id } });
+        } else {
+          toast.error("No active room. Create or join a room first.");
+        }
+        break;
     }
   };
 
@@ -252,7 +259,7 @@ function Dashboard() {
         <h2 className="text-sm font-semibold uppercase tracking-wider text-muted-foreground mb-4">
           Quick Actions
         </h2>
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3">
           <QuickActionButton
             label="Create Room"
             icon={Plus}
@@ -273,6 +280,11 @@ function Dashboard() {
             label="AI Assistant"
             icon={Bot}
             onClick={() => handleQuickAction("chat")}
+          />
+          <QuickActionButton
+            label="Win Analyzer"
+            icon={Trophy}
+            onClick={() => handleQuickAction("win")}
           />
         </div>
       </section>
