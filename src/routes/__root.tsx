@@ -85,6 +85,7 @@ function RootComponent() {
   return (
     <QueryClientProvider client={queryClient}>
       <ThemeProvider>
+        <div className="aurora-screen" aria-hidden="true" />
         <Outlet />
         <Toaster />
       </ThemeProvider>

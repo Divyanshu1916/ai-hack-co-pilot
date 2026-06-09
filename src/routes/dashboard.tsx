@@ -149,7 +149,7 @@ function StatCard({
   trend?: string;
 }) {
   return (
-    <div className="glass rounded-2xl p-5 hover:-translate-y-0.5 transition-all duration-300">
+    <div className="glass aurora-border rounded-2xl p-5 hover:-translate-y-0.5 transition-all duration-300">
       <div className="flex items-start justify-between">
         <div className="h-10 w-10 rounded-xl gradient-bg grid place-items-center shrink-0">
           <Icon className="h-5 w-5 text-primary-foreground" />
@@ -230,7 +230,7 @@ function Dashboard() {
     <AppShell>
       {/* Welcome */}
       <section className="mb-8">
-        <div className="glass rounded-2xl p-6 sm:p-8 relative overflow-hidden">
+        <div className="glass aurora-border rounded-2xl p-6 sm:p-8 relative overflow-hidden">
           <div className="absolute -top-10 -right-10 w-40 h-40 gradient-bg opacity-20 blur-3xl rounded-full" />
           <div className="relative">
             <p className="text-sm text-muted-foreground">
@@ -630,7 +630,7 @@ function RoomCard({ room }: { room: (typeof rooms)[number] }) {
 
   return (
     <Link to="/room/$id" params={{ id: room.id }} className="group">
-      <div className="glass rounded-2xl p-5 h-full hover:-translate-y-1 hover:glow transition-all duration-300">
+      <div className="glass aurora-border rounded-2xl p-5 h-full hover:-translate-y-1 hover:glow transition-all duration-300">
         <div className="flex items-start justify-between mb-3">
           <div
             className={`text-[10px] px-2 py-0.5 rounded-full border uppercase tracking-wider font-semibold ${statusStyle}`}

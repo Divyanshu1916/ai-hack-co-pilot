@@ -61,7 +61,7 @@ const socialLinks = [
 function Landing() {
   return (
     <div className="min-h-screen overflow-x-hidden">
-      <header className="sticky top-0 z-50 glass border-b">
+      <header className="sticky top-0 z-50 glass border-b aurora-border rounded-none">
         <div className="max-w-[1400px] mx-auto px-3 sm:px-6 h-14 sm:h-16 flex items-center gap-2">
           <Logo />
           <nav className="hidden md:flex items-center gap-6 mx-auto text-sm">
@@ -107,7 +107,7 @@ function Landing() {
           {/* Hero mock card */}
           <div className="relative mt-12 sm:mt-16 max-w-5xl mx-auto animate-float">
             <div className="absolute -inset-8 gradient-bg opacity-30 blur-3xl rounded-full" />
-            <div className="relative glass-strong rounded-2xl p-1.5 sm:p-2 shadow-2xl">
+            <div className="relative glass-strong rounded-2xl p-1.5 sm:p-2 shadow-2xl aurora-border">
               <div className="rounded-xl bg-card/60 p-3 sm:p-6 text-left">
                 <div className="flex items-center gap-2 mb-4">
                   <div className="h-2.5 w-2.5 rounded-full bg-destructive/70 shrink-0" />
@@ -158,7 +158,7 @@ function Landing() {
         <div className="mt-14 grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {features.map((f, i) => {
             const card = (
-              <div className="group glass rounded-2xl p-6 hover:-translate-y-1 transition-all duration-300 h-full" style={{ animationDelay: `${i * 50}ms` }}>
+              <div className="group glass aurora-border rounded-2xl p-6 hover:-translate-y-1 transition-all duration-300 h-full" style={{ animationDelay: `${i * 50}ms` }}>
                 <div className="h-11 w-11 rounded-xl gradient-bg grid place-items-center glow mb-4">
                   <f.icon className="h-5 w-5 text-primary-foreground" />
                 </div>

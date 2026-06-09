@@ -228,5 +228,115 @@
   0% { background-position: -200% 0 }
   100% { background-position: 200% 0 }
 }
+@keyframes aurora-spin {
+  0%   { --aurora-angle: 0deg }
+  100% { --aurora-angle: 360deg }
+}
+@keyframes aurora-hue {
+  0%, 100% { filter: hue-rotate(0deg) }
+  50%      { filter: hue-rotate(40deg) }
+}
 .animate-float { animation: float 6s ease-in-out infinite }
 .animate-pulse-glow { animation: pulse-glow 3s ease-in-out infinite }
+
+@property --aurora-angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+/* Soft animated multi-color border glow.
+   Cycles green → yellow → cyan → purple → blue every ~8s.
+   Uses a conic-gradient mask, GPU-friendly, no layout cost. */
+@utility aurora-border {
+  position: relative;
+  isolation: isolate;
+}
+.aurora-border::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  padding: 1.5px;
+  background: conic-gradient(
+    from var(--aurora-angle),
+    oklch(0.78 0.18 150 / 0.9),   /* green */
+    oklch(0.86 0.16 95  / 0.9),   /* yellow */
+    oklch(0.82 0.15 200 / 0.9),   /* cyan */
+    oklch(0.7  0.22 295 / 0.9),   /* purple */
+    oklch(0.68 0.2  250 / 0.9),   /* blue */
+    oklch(0.78 0.18 150 / 0.9)
+  );
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+  animation: aurora-spin 8s linear infinite;
+  pointer-events: none;
+  z-index: 0;
+}
+.aurora-border::after {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  border-radius: inherit;
+  background: conic-gradient(
+    from var(--aurora-angle),
+    oklch(0.78 0.18 150 / 0.35),
+    oklch(0.86 0.16 95  / 0.3),
+    oklch(0.82 0.15 200 / 0.35),
+    oklch(0.7  0.22 295 / 0.35),
+    oklch(0.68 0.2  250 / 0.35),
+    oklch(0.78 0.18 150 / 0.35)
+  );
+  filter: blur(14px);
+  opacity: 0.55;
+  animation: aurora-spin 8s linear infinite;
+  pointer-events: none;
+  z-index: -1;
+}
+.dark .aurora-border::after { opacity: 0.7; }
+.aurora-border > * { position: relative; z-index: 1; }
+
+@media (max-width: 640px) {
+  .aurora-border::after { filter: blur(10px); opacity: 0.4; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .aurora-border::before,
+  .aurora-border::after { animation: none; }
+}
+
+/* Fixed screen-edge glow */
+.aurora-screen {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  border-radius: 0;
+  padding: 2px;
+  background: conic-gradient(
+    from var(--aurora-angle),
+    oklch(0.78 0.18 150 / 0.5),
+    oklch(0.86 0.16 95  / 0.45),
+    oklch(0.82 0.15 200 / 0.5),
+    oklch(0.7  0.22 295 / 0.5),
+    oklch(0.68 0.2  250 / 0.5),
+    oklch(0.78 0.18 150 / 0.5)
+  );
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+  animation: aurora-spin 10s linear infinite;
+  filter: blur(2px);
+  opacity: 0.6;
+}
+.dark .aurora-screen { opacity: 0.75; }
+@media (max-width: 640px) {
+  .aurora-screen { opacity: 0.4; filter: blur(1px); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .aurora-screen { animation: none; }
+}
