@@ -205,10 +205,10 @@ function Landing() {
       </section>
 
       {/* Pricing */}
-      <section id="pricing" className="max-w-[1400px] mx-auto px-4 sm:px-6 py-20">
-        <div className="text-center max-w-2xl mx-auto mb-14">
-          <h2 className="text-3xl sm:text-5xl font-bold tracking-tight">Simple, hacker-friendly pricing</h2>
-          <p className="mt-4 text-muted-foreground">Free forever for solo hackers. Pay per event for teams.</p>
+      <section id="pricing" className="max-w-[1400px] mx-auto px-4 sm:px-6 py-14 sm:py-20">
+        <div className="text-center max-w-2xl mx-auto mb-10 sm:mb-14">
+          <h2 className="text-2xl sm:text-5xl font-bold tracking-tight">Simple, hacker-friendly pricing</h2>
+          <p className="mt-3 sm:mt-4 text-muted-foreground">Free forever for solo hackers. Pay per event for teams.</p>
         </div>
         <div className="grid md:grid-cols-3 gap-4">
           {plans.map(p => (
