@@ -236,14 +236,14 @@ function Landing() {
       </section>
 
       {/* CTA */}
-      <section className="max-w-[1400px] mx-auto px-4 sm:px-6 py-20">
-        <div className="relative overflow-hidden rounded-3xl glass-strong p-10 sm:p-16 text-center">
+      <section className="max-w-[1400px] mx-auto px-4 sm:px-6 py-14 sm:py-20">
+        <div className="relative overflow-hidden rounded-3xl glass-strong p-6 sm:p-16 text-center">
           <div className="absolute inset-0 gradient-bg opacity-20" />
           <div className="relative">
             <Zap className="h-10 w-10 mx-auto mb-4 text-primary" />
-            <h2 className="text-3xl sm:text-5xl font-bold tracking-tight">Your next hackathon starts now</h2>
-            <p className="mt-4 text-muted-foreground max-w-xl mx-auto">Spin up a room in under 30 seconds. No card required.</p>
-            <Link to="/auth" className="inline-block mt-8">
+            <h2 className="text-2xl sm:text-5xl font-bold tracking-tight">Your next hackathon starts now</h2>
+            <p className="mt-3 sm:mt-4 text-muted-foreground max-w-xl mx-auto text-sm sm:text-base">Spin up a room in under 30 seconds. No card required.</p>
+            <Link to="/auth" className="inline-block mt-6 sm:mt-8">
               <Button size="lg" className="gradient-bg text-primary-foreground border-0 glow h-12 px-8 text-base">
                 Start building <ArrowRight className="ml-1 h-4 w-4" />
               </Button>
