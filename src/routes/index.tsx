@@ -61,7 +61,7 @@ const socialLinks = [
 function Landing() {
   return (
     <div className="min-h-screen overflow-x-hidden">
-      <header className="sticky top-0 z-50 glass border-b">
+      <header className="sticky top-0 z-50 glass border-b aurora-border rounded-none">
         <div className="max-w-[1400px] mx-auto px-3 sm:px-6 h-14 sm:h-16 flex items-center gap-2">
           <Logo />
           <nav className="hidden md:flex items-center gap-6 mx-auto text-sm">
