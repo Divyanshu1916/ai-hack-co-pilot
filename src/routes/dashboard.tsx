@@ -230,7 +230,7 @@ function Dashboard() {
     <AppShell>
       {/* Welcome */}
       <section className="mb-8">
-        <div className="glass rounded-2xl p-6 sm:p-8 relative overflow-hidden">
+        <div className="glass aurora-border rounded-2xl p-6 sm:p-8 relative overflow-hidden">
           <div className="absolute -top-10 -right-10 w-40 h-40 gradient-bg opacity-20 blur-3xl rounded-full" />
           <div className="relative">
             <p className="text-sm text-muted-foreground">
