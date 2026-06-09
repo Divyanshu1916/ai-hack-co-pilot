@@ -5,6 +5,7 @@ import { ThemeToggle } from "@/components/ThemeToggle";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { triggerWelcome } from "@/components/WelcomeCelebration";
 import { Github, Mail, ArrowLeft } from "lucide-react";
 
 export const Route = createFileRoute("/auth")({
@@ -91,7 +92,7 @@ function Auth() {
                   <input type="checkbox" id="pool" className="rounded" defaultChecked />
                   <Label htmlFor="pool" className="text-sm">Add me to the solo-hacker matching pool</Label>
                 </div>
-                <Button onClick={() => navigate({ to: "/dashboard" })} className="w-full mt-6 h-11 gradient-bg text-primary-foreground border-0 glow">
+                <Button onClick={() => { triggerWelcome(); navigate({ to: "/dashboard" }); }} className="w-full mt-6 h-11 gradient-bg text-primary-foreground border-0 glow">
                   Enter dashboard
                 </Button>
               </>

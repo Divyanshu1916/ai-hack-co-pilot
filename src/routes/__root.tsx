@@ -13,6 +13,7 @@ import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { ThemeProvider } from "@/lib/theme";
 import { Toaster } from "@/components/ui/sonner";
+import { WelcomeCelebration } from "@/components/WelcomeCelebration";
 
 function NotFoundComponent() {
   return (
@@ -87,6 +88,7 @@ function RootComponent() {
       <ThemeProvider>
         <div className="aurora-screen" aria-hidden="true" />
         <Outlet />
+        <WelcomeCelebration />
         <Toaster />
       </ThemeProvider>
     </QueryClientProvider>

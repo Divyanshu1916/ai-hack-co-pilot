@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { Logo } from "@/components/Logo";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { Button } from "@/components/ui/button";
+import { triggerWelcome } from "@/components/WelcomeCelebration";
 import {
   Lightbulb, FileText, Kanban, MessageSquare, Presentation, Users, Gavel,
   ArrowRight, Github, Linkedin, Sparkles, Zap, Clock, Trophy, Check,
@@ -72,7 +73,7 @@ function Landing() {
           <div className="ml-auto flex items-center gap-1.5 sm:gap-2">
             <ThemeToggle />
             <Link to="/auth"><Button variant="ghost" size="sm">Log in</Button></Link>
-            <Link to="/auth"><Button size="sm" className="gradient-bg text-primary-foreground border-0 glow whitespace-nowrap">Get started</Button></Link>
+            <Link to="/auth" onClick={triggerWelcome}><Button size="sm" className="gradient-bg text-primary-foreground border-0 glow whitespace-nowrap">Get started</Button></Link>
           </div>
         </div>
       </header>
@@ -92,7 +93,7 @@ function Landing() {
             HackMate AI is the one workspace your team needs for the 48-hour sprint — ideation, brief, tasks, code help, and pitch deck, all aligned.
           </p>
           <div className="mt-8 sm:mt-10 flex flex-col sm:flex-row gap-3 justify-center items-stretch sm:items-center px-2">
-            <Link to="/auth" className="w-full sm:w-auto">
+            <Link to="/auth" onClick={triggerWelcome} className="w-full sm:w-auto">
               <Button size="lg" className="w-full sm:w-auto gradient-bg text-primary-foreground border-0 glow h-12 px-7 text-base">
                 Create your room <ArrowRight className="ml-1 h-4 w-4" />
               </Button>
