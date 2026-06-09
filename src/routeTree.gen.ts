@@ -17,6 +17,7 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as RoomNewRouteImport } from './routes/room.new'
 import { Route as RoomIdRouteImport } from './routes/room.$id'
 import { Route as RoomIdIndexRouteImport } from './routes/room.$id.index'
+import { Route as RoomIdWinAnalyzerRouteImport } from './routes/room.$id.win-analyzer'
 import { Route as RoomIdTasksRouteImport } from './routes/room.$id.tasks'
 import { Route as RoomIdRetroRouteImport } from './routes/room.$id.retro'
 import { Route as RoomIdPitchRouteImport } from './routes/room.$id.pitch'
@@ -63,6 +64,11 @@ const RoomIdRoute = RoomIdRouteImport.update({
 const RoomIdIndexRoute = RoomIdIndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => RoomIdRoute,
+} as any)
+const RoomIdWinAnalyzerRoute = RoomIdWinAnalyzerRouteImport.update({
+  id: '/win-analyzer',
+  path: '/win-analyzer',
   getParentRoute: () => RoomIdRoute,
 } as any)
 const RoomIdTasksRoute = RoomIdTasksRouteImport.update({
@@ -116,6 +122,7 @@ export interface FileRoutesByFullPath {
   '/room/$id/pitch': typeof RoomIdPitchRoute
   '/room/$id/retro': typeof RoomIdRetroRoute
   '/room/$id/tasks': typeof RoomIdTasksRoute
+  '/room/$id/win-analyzer': typeof RoomIdWinAnalyzerRoute
   '/room/$id/': typeof RoomIdIndexRoute
 }
 export interface FileRoutesByTo {
@@ -132,6 +139,7 @@ export interface FileRoutesByTo {
   '/room/$id/pitch': typeof RoomIdPitchRoute
   '/room/$id/retro': typeof RoomIdRetroRoute
   '/room/$id/tasks': typeof RoomIdTasksRoute
+  '/room/$id/win-analyzer': typeof RoomIdWinAnalyzerRoute
   '/room/$id': typeof RoomIdIndexRoute
 }
 export interface FileRoutesById {
@@ -150,6 +158,7 @@ export interface FileRoutesById {
   '/room/$id/pitch': typeof RoomIdPitchRoute
   '/room/$id/retro': typeof RoomIdRetroRoute
   '/room/$id/tasks': typeof RoomIdTasksRoute
+  '/room/$id/win-analyzer': typeof RoomIdWinAnalyzerRoute
   '/room/$id/': typeof RoomIdIndexRoute
 }
 export interface FileRouteTypes {
@@ -169,6 +178,7 @@ export interface FileRouteTypes {
     | '/room/$id/pitch'
     | '/room/$id/retro'
     | '/room/$id/tasks'
+    | '/room/$id/win-analyzer'
     | '/room/$id/'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -185,6 +195,7 @@ export interface FileRouteTypes {
     | '/room/$id/pitch'
     | '/room/$id/retro'
     | '/room/$id/tasks'
+    | '/room/$id/win-analyzer'
     | '/room/$id'
   id:
     | '__root__'
@@ -202,6 +213,7 @@ export interface FileRouteTypes {
     | '/room/$id/pitch'
     | '/room/$id/retro'
     | '/room/$id/tasks'
+    | '/room/$id/win-analyzer'
     | '/room/$id/'
   fileRoutesById: FileRoutesById
 }
@@ -273,6 +285,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof RoomIdIndexRouteImport
       parentRoute: typeof RoomIdRoute
     }
+    '/room/$id/win-analyzer': {
+      id: '/room/$id/win-analyzer'
+      path: '/win-analyzer'
+      fullPath: '/room/$id/win-analyzer'
+      preLoaderRoute: typeof RoomIdWinAnalyzerRouteImport
+      parentRoute: typeof RoomIdRoute
+    }
     '/room/$id/tasks': {
       id: '/room/$id/tasks'
       path: '/tasks'
@@ -333,6 +352,7 @@ interface RoomIdRouteChildren {
   RoomIdPitchRoute: typeof RoomIdPitchRoute
   RoomIdRetroRoute: typeof RoomIdRetroRoute
   RoomIdTasksRoute: typeof RoomIdTasksRoute
+  RoomIdWinAnalyzerRoute: typeof RoomIdWinAnalyzerRoute
   RoomIdIndexRoute: typeof RoomIdIndexRoute
 }
 
@@ -344,6 +364,7 @@ const RoomIdRouteChildren: RoomIdRouteChildren = {
   RoomIdPitchRoute: RoomIdPitchRoute,
   RoomIdRetroRoute: RoomIdRetroRoute,
   RoomIdTasksRoute: RoomIdTasksRoute,
+  RoomIdWinAnalyzerRoute: RoomIdWinAnalyzerRoute,
   RoomIdIndexRoute: RoomIdIndexRoute,
 }
 
@@ -362,13 +383,3 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}

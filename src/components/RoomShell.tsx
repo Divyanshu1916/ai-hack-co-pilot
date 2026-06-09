@@ -5,7 +5,7 @@ import { ThemeToggle } from "@/components/ThemeToggle";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import {
   LayoutDashboard, Lightbulb, FileText, Kanban, MessageSquare,
-  Presentation, Plug, History, ArrowLeft, Clock,
+  Presentation, Plug, History, ArrowLeft, Clock, Trophy,
 } from "lucide-react";
 import { rooms } from "@/lib/mock-data";
 import { useEffect, useState } from "react";
@@ -17,6 +17,7 @@ const navItems = [
   { to: "/room/$id/tasks", label: "Tasks", icon: Kanban },
   { to: "/room/$id/chat", label: "AI Chat", icon: MessageSquare },
   { to: "/room/$id/pitch", label: "Pitch", icon: Presentation },
+  { to: "/room/$id/win-analyzer", label: "Win Analyzer", icon: Trophy },
   { to: "/room/$id/apis", label: "APIs", icon: Plug, soon: true },
   { to: "/room/$id/retro", label: "Retro", icon: History, soon: true },
 ];
