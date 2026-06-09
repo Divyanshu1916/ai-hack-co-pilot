@@ -18,6 +18,7 @@ import { Route as RoomNewRouteImport } from './routes/room.new'
 import { Route as RoomIdRouteImport } from './routes/room.$id'
 import { Route as RoomIdIndexRouteImport } from './routes/room.$id.index'
 import { Route as RoomIdWinAnalyzerRouteImport } from './routes/room.$id.win-analyzer'
+import { Route as RoomIdJudgeSimRouteImport } from './routes/room.$id.judge-sim'
 import { Route as RoomIdTasksRouteImport } from './routes/room.$id.tasks'
 import { Route as RoomIdRetroRouteImport } from './routes/room.$id.retro'
 import { Route as RoomIdPitchRouteImport } from './routes/room.$id.pitch'
@@ -70,6 +71,11 @@ const RoomIdIndexRoute = RoomIdIndexRouteImport.update({
 const RoomIdWinAnalyzerRoute = RoomIdWinAnalyzerRouteImport.update({
   id: '/win-analyzer',
   path: '/win-analyzer',
+  getParentRoute: () => RoomIdRoute,
+} as any)
+const RoomIdJudgeSimRoute = RoomIdJudgeSimRouteImport.update({
+  id: '/judge-sim',
+  path: '/judge-sim',
   getParentRoute: () => RoomIdRoute,
 } as any)
 const RoomIdTasksRoute = RoomIdTasksRouteImport.update({
@@ -130,6 +136,7 @@ export interface FileRoutesByFullPath {
   '/room/$id/retro': typeof RoomIdRetroRoute
   '/room/$id/tasks': typeof RoomIdTasksRoute
   '/room/$id/win-analyzer': typeof RoomIdWinAnalyzerRoute
+  '/room/$id/judge-sim': typeof RoomIdJudgeSimRoute
   '/room/$id/': typeof RoomIdIndexRoute
 }
 export interface FileRoutesByTo {
@@ -148,6 +155,7 @@ export interface FileRoutesByTo {
   '/room/$id/retro': typeof RoomIdRetroRoute
   '/room/$id/tasks': typeof RoomIdTasksRoute
   '/room/$id/win-analyzer': typeof RoomIdWinAnalyzerRoute
+  '/room/$id/judge-sim': typeof RoomIdJudgeSimRoute
   '/room/$id': typeof RoomIdIndexRoute
 }
 export interface FileRoutesById {
@@ -168,6 +176,7 @@ export interface FileRoutesById {
   '/room/$id/retro': typeof RoomIdRetroRoute
   '/room/$id/tasks': typeof RoomIdTasksRoute
   '/room/$id/win-analyzer': typeof RoomIdWinAnalyzerRoute
+  '/room/$id/judge-sim': typeof RoomIdJudgeSimRoute
   '/room/$id/': typeof RoomIdIndexRoute
 }
 export interface FileRouteTypes {
@@ -189,6 +198,8 @@ export interface FileRouteTypes {
     | '/room/$id/retro'
     | '/room/$id/tasks'
     | '/room/$id/win-analyzer'
+    | '/room/$id/judge-sim'
+    | '/room/$id/judge-sim'
     | '/room/$id/'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -207,6 +218,7 @@ export interface FileRouteTypes {
     | '/room/$id/retro'
     | '/room/$id/tasks'
     | '/room/$id/win-analyzer'
+    | '/room/$id/judge-sim'
     | '/room/$id'
   id:
     | '__root__'
@@ -304,6 +316,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof RoomIdWinAnalyzerRouteImport
       parentRoute: typeof RoomIdRoute
     }
+    '/room/$id/judge-sim': {
+      id: '/room/$id/judge-sim'
+      path: '/judge-sim'
+      fullPath: '/room/$id/judge-sim'
+      preLoaderRoute: typeof RoomIdJudgeSimRouteImport
+      parentRoute: typeof RoomIdRoute
+    }
     '/room/$id/tasks': {
       id: '/room/$id/tasks'
       path: '/tasks'
@@ -373,6 +392,7 @@ interface RoomIdRouteChildren {
   RoomIdRetroRoute: typeof RoomIdRetroRoute
   RoomIdTasksRoute: typeof RoomIdTasksRoute
   RoomIdWinAnalyzerRoute: typeof RoomIdWinAnalyzerRoute
+  RoomIdJudgeSimRoute: typeof RoomIdJudgeSimRoute
   RoomIdIndexRoute: typeof RoomIdIndexRoute
 }
 
@@ -386,6 +406,7 @@ const RoomIdRouteChildren: RoomIdRouteChildren = {
   RoomIdRetroRoute: RoomIdRetroRoute,
   RoomIdTasksRoute: RoomIdTasksRoute,
   RoomIdWinAnalyzerRoute: RoomIdWinAnalyzerRoute,
+  RoomIdJudgeSimRoute: RoomIdJudgeSimRoute,
   RoomIdIndexRoute: RoomIdIndexRoute,
 }
 
