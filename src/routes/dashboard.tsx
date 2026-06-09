@@ -11,7 +11,7 @@ import {
   Plus, ArrowRight, Users, Sparkles, Activity, Zap,
   Lightbulb, MessageSquare, Kanban, Calendar, Trophy,
   Bell, TrendingUp, Clock, FolderOpen, LogIn, Bot,
-  CheckCircle2, AlertCircle, Info, X,
+  CheckCircle2, AlertCircle, Info, X, MapPin,
 } from "lucide-react";
 import {
   Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger, DialogFooter,
