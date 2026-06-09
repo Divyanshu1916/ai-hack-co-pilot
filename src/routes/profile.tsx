@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Switch } from "@/components/ui/switch";
-import { Github, Trophy, Globe, Mail } from "lucide-react";
+import { Github, Linkedin, Trophy, Globe, Mail } from "lucide-react";
 
 export const Route = createFileRoute("/profile")({
   head: () => ({ meta: [{ title: "Profile · HackMate AI" }, { name: "description", content: "Your hacker profile and preferences." }] }),
