@@ -9,38 +9,229 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
+import { Route as ProfileRouteImport } from './routes/profile'
+import { Route as DashboardRouteImport } from './routes/dashboard'
+import { Route as AuthRouteImport } from './routes/auth'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as RoomIdRouteImport } from './routes/room.$id'
+import { Route as RoomIdIndexRouteImport } from './routes/room.$id.index'
+import { Route as RoomIdTasksRouteImport } from './routes/room.$id.tasks'
+import { Route as RoomIdRetroRouteImport } from './routes/room.$id.retro'
+import { Route as RoomIdPitchRouteImport } from './routes/room.$id.pitch'
+import { Route as RoomIdIdeasRouteImport } from './routes/room.$id.ideas'
+import { Route as RoomIdChatRouteImport } from './routes/room.$id.chat'
+import { Route as RoomIdBriefRouteImport } from './routes/room.$id.brief'
+import { Route as RoomIdApisRouteImport } from './routes/room.$id.apis'
 
+const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
+  id: '/sitemap.xml',
+  path: '/sitemap.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProfileRoute = ProfileRouteImport.update({
+  id: '/profile',
+  path: '/profile',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DashboardRoute = DashboardRouteImport.update({
+  id: '/dashboard',
+  path: '/dashboard',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AuthRoute = AuthRouteImport.update({
+  id: '/auth',
+  path: '/auth',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const RoomIdRoute = RoomIdRouteImport.update({
+  id: '/room/$id',
+  path: '/room/$id',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RoomIdIndexRoute = RoomIdIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => RoomIdRoute,
+} as any)
+const RoomIdTasksRoute = RoomIdTasksRouteImport.update({
+  id: '/tasks',
+  path: '/tasks',
+  getParentRoute: () => RoomIdRoute,
+} as any)
+const RoomIdRetroRoute = RoomIdRetroRouteImport.update({
+  id: '/retro',
+  path: '/retro',
+  getParentRoute: () => RoomIdRoute,
+} as any)
+const RoomIdPitchRoute = RoomIdPitchRouteImport.update({
+  id: '/pitch',
+  path: '/pitch',
+  getParentRoute: () => RoomIdRoute,
+} as any)
+const RoomIdIdeasRoute = RoomIdIdeasRouteImport.update({
+  id: '/ideas',
+  path: '/ideas',
+  getParentRoute: () => RoomIdRoute,
+} as any)
+const RoomIdChatRoute = RoomIdChatRouteImport.update({
+  id: '/chat',
+  path: '/chat',
+  getParentRoute: () => RoomIdRoute,
+} as any)
+const RoomIdBriefRoute = RoomIdBriefRouteImport.update({
+  id: '/brief',
+  path: '/brief',
+  getParentRoute: () => RoomIdRoute,
+} as any)
+const RoomIdApisRoute = RoomIdApisRouteImport.update({
+  id: '/apis',
+  path: '/apis',
+  getParentRoute: () => RoomIdRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/auth': typeof AuthRoute
+  '/dashboard': typeof DashboardRoute
+  '/profile': typeof ProfileRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/room/$id': typeof RoomIdRouteWithChildren
+  '/room/$id/apis': typeof RoomIdApisRoute
+  '/room/$id/brief': typeof RoomIdBriefRoute
+  '/room/$id/chat': typeof RoomIdChatRoute
+  '/room/$id/ideas': typeof RoomIdIdeasRoute
+  '/room/$id/pitch': typeof RoomIdPitchRoute
+  '/room/$id/retro': typeof RoomIdRetroRoute
+  '/room/$id/tasks': typeof RoomIdTasksRoute
+  '/room/$id/': typeof RoomIdIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/auth': typeof AuthRoute
+  '/dashboard': typeof DashboardRoute
+  '/profile': typeof ProfileRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/room/$id/apis': typeof RoomIdApisRoute
+  '/room/$id/brief': typeof RoomIdBriefRoute
+  '/room/$id/chat': typeof RoomIdChatRoute
+  '/room/$id/ideas': typeof RoomIdIdeasRoute
+  '/room/$id/pitch': typeof RoomIdPitchRoute
+  '/room/$id/retro': typeof RoomIdRetroRoute
+  '/room/$id/tasks': typeof RoomIdTasksRoute
+  '/room/$id': typeof RoomIdIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/auth': typeof AuthRoute
+  '/dashboard': typeof DashboardRoute
+  '/profile': typeof ProfileRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/room/$id': typeof RoomIdRouteWithChildren
+  '/room/$id/apis': typeof RoomIdApisRoute
+  '/room/$id/brief': typeof RoomIdBriefRoute
+  '/room/$id/chat': typeof RoomIdChatRoute
+  '/room/$id/ideas': typeof RoomIdIdeasRoute
+  '/room/$id/pitch': typeof RoomIdPitchRoute
+  '/room/$id/retro': typeof RoomIdRetroRoute
+  '/room/$id/tasks': typeof RoomIdTasksRoute
+  '/room/$id/': typeof RoomIdIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/auth'
+    | '/dashboard'
+    | '/profile'
+    | '/sitemap.xml'
+    | '/room/$id'
+    | '/room/$id/apis'
+    | '/room/$id/brief'
+    | '/room/$id/chat'
+    | '/room/$id/ideas'
+    | '/room/$id/pitch'
+    | '/room/$id/retro'
+    | '/room/$id/tasks'
+    | '/room/$id/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/auth'
+    | '/dashboard'
+    | '/profile'
+    | '/sitemap.xml'
+    | '/room/$id/apis'
+    | '/room/$id/brief'
+    | '/room/$id/chat'
+    | '/room/$id/ideas'
+    | '/room/$id/pitch'
+    | '/room/$id/retro'
+    | '/room/$id/tasks'
+    | '/room/$id'
+  id:
+    | '__root__'
+    | '/'
+    | '/auth'
+    | '/dashboard'
+    | '/profile'
+    | '/sitemap.xml'
+    | '/room/$id'
+    | '/room/$id/apis'
+    | '/room/$id/brief'
+    | '/room/$id/chat'
+    | '/room/$id/ideas'
+    | '/room/$id/pitch'
+    | '/room/$id/retro'
+    | '/room/$id/tasks'
+    | '/room/$id/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AuthRoute: typeof AuthRoute
+  DashboardRoute: typeof DashboardRoute
+  ProfileRoute: typeof ProfileRoute
+  SitemapDotxmlRoute: typeof SitemapDotxmlRoute
+  RoomIdRoute: typeof RoomIdRouteWithChildren
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/sitemap.xml': {
+      id: '/sitemap.xml'
+      path: '/sitemap.xml'
+      fullPath: '/sitemap.xml'
+      preLoaderRoute: typeof SitemapDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/profile': {
+      id: '/profile'
+      path: '/profile'
+      fullPath: '/profile'
+      preLoaderRoute: typeof ProfileRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/dashboard': {
+      id: '/dashboard'
+      path: '/dashboard'
+      fullPath: '/dashboard'
+      preLoaderRoute: typeof DashboardRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/auth': {
+      id: '/auth'
+      path: '/auth'
+      fullPath: '/auth'
+      preLoaderRoute: typeof AuthRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -48,22 +239,105 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/room/$id': {
+      id: '/room/$id'
+      path: '/room/$id'
+      fullPath: '/room/$id'
+      preLoaderRoute: typeof RoomIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/room/$id/': {
+      id: '/room/$id/'
+      path: '/'
+      fullPath: '/room/$id/'
+      preLoaderRoute: typeof RoomIdIndexRouteImport
+      parentRoute: typeof RoomIdRoute
+    }
+    '/room/$id/tasks': {
+      id: '/room/$id/tasks'
+      path: '/tasks'
+      fullPath: '/room/$id/tasks'
+      preLoaderRoute: typeof RoomIdTasksRouteImport
+      parentRoute: typeof RoomIdRoute
+    }
+    '/room/$id/retro': {
+      id: '/room/$id/retro'
+      path: '/retro'
+      fullPath: '/room/$id/retro'
+      preLoaderRoute: typeof RoomIdRetroRouteImport
+      parentRoute: typeof RoomIdRoute
+    }
+    '/room/$id/pitch': {
+      id: '/room/$id/pitch'
+      path: '/pitch'
+      fullPath: '/room/$id/pitch'
+      preLoaderRoute: typeof RoomIdPitchRouteImport
+      parentRoute: typeof RoomIdRoute
+    }
+    '/room/$id/ideas': {
+      id: '/room/$id/ideas'
+      path: '/ideas'
+      fullPath: '/room/$id/ideas'
+      preLoaderRoute: typeof RoomIdIdeasRouteImport
+      parentRoute: typeof RoomIdRoute
+    }
+    '/room/$id/chat': {
+      id: '/room/$id/chat'
+      path: '/chat'
+      fullPath: '/room/$id/chat'
+      preLoaderRoute: typeof RoomIdChatRouteImport
+      parentRoute: typeof RoomIdRoute
+    }
+    '/room/$id/brief': {
+      id: '/room/$id/brief'
+      path: '/brief'
+      fullPath: '/room/$id/brief'
+      preLoaderRoute: typeof RoomIdBriefRouteImport
+      parentRoute: typeof RoomIdRoute
+    }
+    '/room/$id/apis': {
+      id: '/room/$id/apis'
+      path: '/apis'
+      fullPath: '/room/$id/apis'
+      preLoaderRoute: typeof RoomIdApisRouteImport
+      parentRoute: typeof RoomIdRoute
+    }
   }
 }
 
+interface RoomIdRouteChildren {
+  RoomIdApisRoute: typeof RoomIdApisRoute
+  RoomIdBriefRoute: typeof RoomIdBriefRoute
+  RoomIdChatRoute: typeof RoomIdChatRoute
+  RoomIdIdeasRoute: typeof RoomIdIdeasRoute
+  RoomIdPitchRoute: typeof RoomIdPitchRoute
+  RoomIdRetroRoute: typeof RoomIdRetroRoute
+  RoomIdTasksRoute: typeof RoomIdTasksRoute
+  RoomIdIndexRoute: typeof RoomIdIndexRoute
+}
+
+const RoomIdRouteChildren: RoomIdRouteChildren = {
+  RoomIdApisRoute: RoomIdApisRoute,
+  RoomIdBriefRoute: RoomIdBriefRoute,
+  RoomIdChatRoute: RoomIdChatRoute,
+  RoomIdIdeasRoute: RoomIdIdeasRoute,
+  RoomIdPitchRoute: RoomIdPitchRoute,
+  RoomIdRetroRoute: RoomIdRetroRoute,
+  RoomIdTasksRoute: RoomIdTasksRoute,
+  RoomIdIndexRoute: RoomIdIndexRoute,
+}
+
+const RoomIdRouteWithChildren =
+  RoomIdRoute._addFileChildren(RoomIdRouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AuthRoute: AuthRoute,
+  DashboardRoute: DashboardRoute,
+  ProfileRoute: ProfileRoute,
+  SitemapDotxmlRoute: SitemapDotxmlRoute,
+  RoomIdRoute: RoomIdRouteWithChildren,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
