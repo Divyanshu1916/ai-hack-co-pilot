@@ -4,7 +4,7 @@ import { ThemeToggle } from "@/components/ThemeToggle";
 import { Button } from "@/components/ui/button";
 import {
   Lightbulb, FileText, Kanban, MessageSquare, Presentation, Users,
-  ArrowRight, Github, Sparkles, Zap, Clock, Trophy, Check,
+  ArrowRight, Github, Linkedin, Sparkles, Zap, Clock, Trophy, Check,
 } from "lucide-react";
 
 export const Route = createFileRoute("/")({
