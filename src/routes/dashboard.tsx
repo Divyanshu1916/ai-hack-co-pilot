@@ -353,61 +353,6 @@ function Dashboard() {
             </div>
           </Section>
 
-          {/* Upcoming events from your rooms */}
-          <Section title="Your Upcoming Hackathons" subtitle="On your calendar">
-            <div className="grid sm:grid-cols-2 gap-4">
-              {upcoming.map((r) => (
-                <RoomCard key={r.id} room={r} />
-              ))}
-              {upcomingHackathons.slice(0, 2).map((h) => (
-                <div
-                  key={h.id}
-                  className="glass rounded-2xl p-5 border-dashed hover:-translate-y-0.5 transition-all"
-                >
-                  <div className="flex items-center gap-2 mb-3">
-                    <Calendar className="h-4 w-4 text-primary" />
-                    <h3 className="font-display font-semibold">{h.name}</h3>
-                  </div>
-                  <p className="text-xs text-muted-foreground">
-                    {h.date} · {h.location}
-                  </p>
-                  <div className="flex flex-wrap gap-1.5 mt-3">
-                    {h.tags.map((t) => (
-                      <span
-                        key={t}
-                        className="text-[10px] px-2 py-0.5 rounded-full glass"
-                      >
-                        {t}
-                      </span>
-                    ))}
-                  </div>
-                  <Button
-                    variant="outline"
-                    size="sm"
-                    className="mt-4 w-full glass"
-                    onClick={() =>
-                      toast.success(
-                        h.registered
-                          ? "Already registered!"
-                          : "Registered successfully"
-                      )
-                    }
-                  >
-                    {h.registered ? "Registered" : "Register now"}
-                  </Button>
-                </div>
-              ))}
-            </div>
-          </Section>
-
-          {/* Past rooms */}
-          <Section title="Past Rooms" subtitle="Completed hackathons">
-            <div className="grid sm:grid-cols-2 gap-4">
-              {past.map((r) => (
-                <RoomCard key={r.id} room={r} />
-              ))}
-            </div>
-          </Section>
         </div>
 
         {/* Right column — sidebar */}
