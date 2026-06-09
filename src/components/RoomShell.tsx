@@ -22,11 +22,13 @@ const navItems = [
 ];
 
 function useCountdown(end: string) {
-  const [now, setNow] = useState(() => Date.now());
+  const [now, setNow] = useState<number | null>(null);
   useEffect(() => {
+    setNow(Date.now());
     const i = setInterval(() => setNow(Date.now()), 1000);
     return () => clearInterval(i);
   }, []);
+  if (now === null) return "--h --m --s";
   const diff = Math.max(0, new Date(end).getTime() - now);
   const h = Math.floor(diff / 3600000);
   const m = Math.floor((diff % 3600000) / 60000);

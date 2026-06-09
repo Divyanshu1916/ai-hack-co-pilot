@@ -14,6 +14,7 @@ import { Route as ProfileRouteImport } from './routes/profile'
 import { Route as DashboardRouteImport } from './routes/dashboard'
 import { Route as AuthRouteImport } from './routes/auth'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as RoomNewRouteImport } from './routes/room.new'
 import { Route as RoomIdRouteImport } from './routes/room.$id'
 import { Route as RoomIdIndexRouteImport } from './routes/room.$id.index'
 import { Route as RoomIdTasksRouteImport } from './routes/room.$id.tasks'
@@ -47,6 +48,11 @@ const AuthRoute = AuthRouteImport.update({
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RoomNewRoute = RoomNewRouteImport.update({
+  id: '/room/new',
+  path: '/room/new',
   getParentRoute: () => rootRouteImport,
 } as any)
 const RoomIdRoute = RoomIdRouteImport.update({
@@ -102,6 +108,7 @@ export interface FileRoutesByFullPath {
   '/profile': typeof ProfileRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/room/$id': typeof RoomIdRouteWithChildren
+  '/room/new': typeof RoomNewRoute
   '/room/$id/apis': typeof RoomIdApisRoute
   '/room/$id/brief': typeof RoomIdBriefRoute
   '/room/$id/chat': typeof RoomIdChatRoute
@@ -117,6 +124,7 @@ export interface FileRoutesByTo {
   '/dashboard': typeof DashboardRoute
   '/profile': typeof ProfileRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/room/new': typeof RoomNewRoute
   '/room/$id/apis': typeof RoomIdApisRoute
   '/room/$id/brief': typeof RoomIdBriefRoute
   '/room/$id/chat': typeof RoomIdChatRoute
@@ -134,6 +142,7 @@ export interface FileRoutesById {
   '/profile': typeof ProfileRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/room/$id': typeof RoomIdRouteWithChildren
+  '/room/new': typeof RoomNewRoute
   '/room/$id/apis': typeof RoomIdApisRoute
   '/room/$id/brief': typeof RoomIdBriefRoute
   '/room/$id/chat': typeof RoomIdChatRoute
@@ -152,6 +161,7 @@ export interface FileRouteTypes {
     | '/profile'
     | '/sitemap.xml'
     | '/room/$id'
+    | '/room/new'
     | '/room/$id/apis'
     | '/room/$id/brief'
     | '/room/$id/chat'
@@ -167,6 +177,7 @@ export interface FileRouteTypes {
     | '/dashboard'
     | '/profile'
     | '/sitemap.xml'
+    | '/room/new'
     | '/room/$id/apis'
     | '/room/$id/brief'
     | '/room/$id/chat'
@@ -183,6 +194,7 @@ export interface FileRouteTypes {
     | '/profile'
     | '/sitemap.xml'
     | '/room/$id'
+    | '/room/new'
     | '/room/$id/apis'
     | '/room/$id/brief'
     | '/room/$id/chat'
@@ -200,6 +212,7 @@ export interface RootRouteChildren {
   ProfileRoute: typeof ProfileRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   RoomIdRoute: typeof RoomIdRouteWithChildren
+  RoomNewRoute: typeof RoomNewRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -237,6 +250,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/room/new': {
+      id: '/room/new'
+      path: '/room/new'
+      fullPath: '/room/new'
+      preLoaderRoute: typeof RoomNewRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/room/$id': {
@@ -337,6 +357,7 @@ const rootRouteChildren: RootRouteChildren = {
   ProfileRoute: ProfileRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   RoomIdRoute: RoomIdRouteWithChildren,
+  RoomNewRoute: RoomNewRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
