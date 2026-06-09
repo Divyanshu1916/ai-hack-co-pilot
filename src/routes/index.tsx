@@ -21,11 +21,11 @@ export const Route = createFileRoute("/")({
 
 const features: { icon: any; title: string; desc: string; to?: string; params?: any }[] = [
   { icon: Lightbulb, title: "AI Idea Generator", desc: "Ranked, feasibility-scored ideas tuned to your theme and team skills.", to: "/room/$id/ideas", params: { id: "neon-2026" } },
-  { icon: FileText, title: "Living Project Brief", desc: "A one-pager that updates itself as your team converges." },
-  { icon: Kanban, title: "AI Task Board", desc: "Auto-generated tasks, labeled by role, re-prioritized as the clock ticks." },
-  { icon: MessageSquare, title: "In-Context Assistant", desc: "Answers grounded in your brief, stack, and current tasks — not generic snippets." },
-  { icon: Presentation, title: "Pitch Studio", desc: "One click to a 5-slide deck with judge-mode Q&A simulation." },
-  { icon: Users, title: "Team Matching", desc: "Solo hackers find compatible teams by skill, timezone, and interest." },
+  { icon: FileText, title: "Living Project Brief", desc: "A one-pager that updates itself as your team converges.", to: "/room/$id/brief", params: { id: "neon-2026" } },
+  { icon: Kanban, title: "AI Task Board", desc: "Auto-generated tasks, labeled by role, re-prioritized as the clock ticks.", to: "/room/$id/tasks", params: { id: "neon-2026" } },
+  { icon: MessageSquare, title: "In-Context Assistant", desc: "Answers grounded in your brief, stack, and current tasks — not generic snippets.", to: "/room/$id/chat", params: { id: "neon-2026" } },
+  { icon: Presentation, title: "Pitch Studio", desc: "One click to a 5-slide deck with judge-mode Q&A simulation.", to: "/room/$id/pitch", params: { id: "neon-2026" } },
+  { icon: Users, title: "Team Matching", desc: "Solo hackers find compatible teams by skill, timezone, and interest.", to: "/dashboard" },
 ];
 
 const stats = [
