@@ -21,6 +21,7 @@ import { Route as RoomIdWinAnalyzerRouteImport } from './routes/room.$id.win-ana
 import { Route as RoomIdTasksRouteImport } from './routes/room.$id.tasks'
 import { Route as RoomIdRetroRouteImport } from './routes/room.$id.retro'
 import { Route as RoomIdPitchRouteImport } from './routes/room.$id.pitch'
+import { Route as RoomIdJudgeSimRouteImport } from './routes/room.$id.judge-sim'
 import { Route as RoomIdIdeasRouteImport } from './routes/room.$id.ideas'
 import { Route as RoomIdChatRouteImport } from './routes/room.$id.chat'
 import { Route as RoomIdBriefRouteImport } from './routes/room.$id.brief'
@@ -86,6 +87,11 @@ const RoomIdPitchRoute = RoomIdPitchRouteImport.update({
   path: '/pitch',
   getParentRoute: () => RoomIdRoute,
 } as any)
+const RoomIdJudgeSimRoute = RoomIdJudgeSimRouteImport.update({
+  id: '/judge-sim',
+  path: '/judge-sim',
+  getParentRoute: () => RoomIdRoute,
+} as any)
 const RoomIdIdeasRoute = RoomIdIdeasRouteImport.update({
   id: '/ideas',
   path: '/ideas',
@@ -119,6 +125,7 @@ export interface FileRoutesByFullPath {
   '/room/$id/brief': typeof RoomIdBriefRoute
   '/room/$id/chat': typeof RoomIdChatRoute
   '/room/$id/ideas': typeof RoomIdIdeasRoute
+  '/room/$id/judge-sim': typeof RoomIdJudgeSimRoute
   '/room/$id/pitch': typeof RoomIdPitchRoute
   '/room/$id/retro': typeof RoomIdRetroRoute
   '/room/$id/tasks': typeof RoomIdTasksRoute
@@ -136,6 +143,7 @@ export interface FileRoutesByTo {
   '/room/$id/brief': typeof RoomIdBriefRoute
   '/room/$id/chat': typeof RoomIdChatRoute
   '/room/$id/ideas': typeof RoomIdIdeasRoute
+  '/room/$id/judge-sim': typeof RoomIdJudgeSimRoute
   '/room/$id/pitch': typeof RoomIdPitchRoute
   '/room/$id/retro': typeof RoomIdRetroRoute
   '/room/$id/tasks': typeof RoomIdTasksRoute
@@ -155,6 +163,7 @@ export interface FileRoutesById {
   '/room/$id/brief': typeof RoomIdBriefRoute
   '/room/$id/chat': typeof RoomIdChatRoute
   '/room/$id/ideas': typeof RoomIdIdeasRoute
+  '/room/$id/judge-sim': typeof RoomIdJudgeSimRoute
   '/room/$id/pitch': typeof RoomIdPitchRoute
   '/room/$id/retro': typeof RoomIdRetroRoute
   '/room/$id/tasks': typeof RoomIdTasksRoute
@@ -175,6 +184,7 @@ export interface FileRouteTypes {
     | '/room/$id/brief'
     | '/room/$id/chat'
     | '/room/$id/ideas'
+    | '/room/$id/judge-sim'
     | '/room/$id/pitch'
     | '/room/$id/retro'
     | '/room/$id/tasks'
@@ -192,6 +202,7 @@ export interface FileRouteTypes {
     | '/room/$id/brief'
     | '/room/$id/chat'
     | '/room/$id/ideas'
+    | '/room/$id/judge-sim'
     | '/room/$id/pitch'
     | '/room/$id/retro'
     | '/room/$id/tasks'
@@ -210,6 +221,7 @@ export interface FileRouteTypes {
     | '/room/$id/brief'
     | '/room/$id/chat'
     | '/room/$id/ideas'
+    | '/room/$id/judge-sim'
     | '/room/$id/pitch'
     | '/room/$id/retro'
     | '/room/$id/tasks'
@@ -313,6 +325,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof RoomIdPitchRouteImport
       parentRoute: typeof RoomIdRoute
     }
+    '/room/$id/judge-sim': {
+      id: '/room/$id/judge-sim'
+      path: '/judge-sim'
+      fullPath: '/room/$id/judge-sim'
+      preLoaderRoute: typeof RoomIdJudgeSimRouteImport
+      parentRoute: typeof RoomIdRoute
+    }
     '/room/$id/ideas': {
       id: '/room/$id/ideas'
       path: '/ideas'
@@ -349,6 +368,7 @@ interface RoomIdRouteChildren {
   RoomIdBriefRoute: typeof RoomIdBriefRoute
   RoomIdChatRoute: typeof RoomIdChatRoute
   RoomIdIdeasRoute: typeof RoomIdIdeasRoute
+  RoomIdJudgeSimRoute: typeof RoomIdJudgeSimRoute
   RoomIdPitchRoute: typeof RoomIdPitchRoute
   RoomIdRetroRoute: typeof RoomIdRetroRoute
   RoomIdTasksRoute: typeof RoomIdTasksRoute
@@ -361,6 +381,7 @@ const RoomIdRouteChildren: RoomIdRouteChildren = {
   RoomIdBriefRoute: RoomIdBriefRoute,
   RoomIdChatRoute: RoomIdChatRoute,
   RoomIdIdeasRoute: RoomIdIdeasRoute,
+  RoomIdJudgeSimRoute: RoomIdJudgeSimRoute,
   RoomIdPitchRoute: RoomIdPitchRoute,
   RoomIdRetroRoute: RoomIdRetroRoute,
   RoomIdTasksRoute: RoomIdTasksRoute,
@@ -383,3 +404,13 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}
