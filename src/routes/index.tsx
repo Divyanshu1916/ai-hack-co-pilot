@@ -19,8 +19,8 @@ export const Route = createFileRoute("/")({
   component: Landing,
 });
 
-const features = [
-  { icon: Lightbulb, title: "AI Idea Generator", desc: "Ranked, feasibility-scored ideas tuned to your theme and team skills." },
+const features: { icon: any; title: string; desc: string; to?: string; params?: any }[] = [
+  { icon: Lightbulb, title: "AI Idea Generator", desc: "Ranked, feasibility-scored ideas tuned to your theme and team skills.", to: "/room/$id/ideas", params: { id: "neon-2026" } },
   { icon: FileText, title: "Living Project Brief", desc: "A one-pager that updates itself as your team converges." },
   { icon: Kanban, title: "AI Task Board", desc: "Auto-generated tasks, labeled by role, re-prioritized as the clock ticks." },
   { icon: MessageSquare, title: "In-Context Assistant", desc: "Answers grounded in your brief, stack, and current tasks — not generic snippets." },
