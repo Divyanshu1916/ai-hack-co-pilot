@@ -216,6 +216,13 @@ function Dashboard() {
           toast.error("No active room. Create or join a room first.");
         }
         break;
+      case "win":
+        if (firstActiveRoom) {
+          navigate({ to: "/room/$id/win-analyzer", params: { id: firstActiveRoom.id } });
+        } else {
+          toast.error("No active room. Create or join a room first.");
+        }
+        break;
     }
   };
 
