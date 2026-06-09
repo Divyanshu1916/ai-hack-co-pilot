@@ -275,10 +275,19 @@ function Landing() {
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6 py-8 sm:py-10 flex flex-col sm:flex-row gap-4 items-center justify-between text-sm text-muted-foreground text-center sm:text-left">
           <Logo />
           <div className="order-3 sm:order-2">© 2026 HackMate AI — Made for hackers, by hackers.</div>
-          <div className="flex gap-4 order-2 sm:order-3">
-            <a href="#" className="hover:text-foreground">Twitter</a>
-            <a href="#" className="hover:text-foreground">GitHub</a>
-            <a href="#" className="hover:text-foreground">Discord</a>
+          <div className="flex flex-wrap justify-center gap-3 sm:gap-4 order-2 sm:order-3">
+            {socialLinks.map((link) => (
+              <a
+                key={link.label}
+                href={link.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-1.5 hover:text-foreground transition-colors"
+              >
+                {link.icon}
+                <span>{link.label}</span>
+              </a>
+            ))}
           </div>
         </div>
       </footer>
