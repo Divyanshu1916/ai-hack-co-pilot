@@ -3,7 +3,7 @@ import { Logo } from "@/components/Logo";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { Button } from "@/components/ui/button";
 import {
-  Lightbulb, FileText, Kanban, MessageSquare, Presentation, Users,
+  Lightbulb, FileText, Kanban, MessageSquare, Presentation, Users, Gavel,
   ArrowRight, Github, Linkedin, Sparkles, Zap, Clock, Trophy, Check,
 } from "lucide-react";
 
