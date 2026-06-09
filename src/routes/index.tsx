@@ -49,76 +49,76 @@ const plans = [
 
 function Landing() {
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen overflow-x-hidden">
       <header className="sticky top-0 z-50 glass border-b">
-        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 h-16 flex items-center">
+        <div className="max-w-[1400px] mx-auto px-3 sm:px-6 h-14 sm:h-16 flex items-center gap-2">
           <Logo />
           <nav className="hidden md:flex items-center gap-6 mx-auto text-sm">
             <a href="#features" className="text-muted-foreground hover:text-foreground transition-colors">Features</a>
             <a href="#how" className="text-muted-foreground hover:text-foreground transition-colors">How it works</a>
             <a href="#pricing" className="text-muted-foreground hover:text-foreground transition-colors">Pricing</a>
           </nav>
-          <div className="ml-auto md:ml-0 flex items-center gap-2">
+          <div className="ml-auto flex items-center gap-1.5 sm:gap-2">
             <ThemeToggle />
-            <Link to="/auth"><Button variant="ghost" size="sm">Log in</Button></Link>
-            <Link to="/auth"><Button size="sm" className="gradient-bg text-primary-foreground border-0 glow">Get started</Button></Link>
+            <Link to="/auth" className="hidden sm:block"><Button variant="ghost" size="sm">Log in</Button></Link>
+            <Link to="/auth"><Button size="sm" className="gradient-bg text-primary-foreground border-0 glow whitespace-nowrap">Get started</Button></Link>
           </div>
         </div>
       </header>
 
       {/* Hero */}
       <section className="relative overflow-hidden">
-        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 pt-16 sm:pt-28 pb-20 text-center">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full glass text-xs font-medium mb-8 animate-fade-in">
-            <Sparkles className="h-3 w-3 text-primary" />
-            New · Pitch judge-mode now live
+        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 pt-12 sm:pt-24 pb-16 sm:pb-20 text-center">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full glass text-xs font-medium mb-6 sm:mb-8 animate-fade-in">
+            <Sparkles className="h-3 w-3 text-primary shrink-0" />
+            <span className="truncate">New · Pitch judge-mode now live</span>
           </div>
-          <h1 className="text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tighter max-w-4xl mx-auto leading-[1.05]">
-            Ship your hackathon project<br />
+          <h1 className="text-[2rem] leading-[1.1] sm:text-6xl lg:text-7xl font-bold tracking-tight sm:tracking-tighter max-w-4xl mx-auto sm:leading-[1.05]">
+            Ship your hackathon project{" "}
             <span className="gradient-text">before the deadline</span> bites.
           </h1>
-          <p className="mt-6 text-base sm:text-xl text-muted-foreground max-w-2xl mx-auto">
+          <p className="mt-5 sm:mt-6 text-sm sm:text-xl text-muted-foreground max-w-2xl mx-auto px-2">
             HackMate AI is the one workspace your team needs for the 48-hour sprint — ideation, brief, tasks, code help, and pitch deck, all aligned.
           </p>
-          <div className="mt-10 flex flex-col sm:flex-row gap-3 justify-center">
-            <Link to="/auth">
-              <Button size="lg" className="gradient-bg text-primary-foreground border-0 glow h-12 px-7 text-base">
+          <div className="mt-8 sm:mt-10 flex flex-col sm:flex-row gap-3 justify-center items-stretch sm:items-center px-2">
+            <Link to="/auth" className="w-full sm:w-auto">
+              <Button size="lg" className="w-full sm:w-auto gradient-bg text-primary-foreground border-0 glow h-12 px-7 text-base">
                 Create your room <ArrowRight className="ml-1 h-4 w-4" />
               </Button>
             </Link>
-            <Link to="/dashboard">
-              <Button size="lg" variant="outline" className="glass h-12 px-7 text-base">
+            <Link to="/dashboard" className="w-full sm:w-auto">
+              <Button size="lg" variant="outline" className="w-full sm:w-auto glass h-12 px-7 text-base">
                 <Github className="mr-1 h-4 w-4" /> See live demo
               </Button>
             </Link>
           </div>
 
           {/* Hero mock card */}
-          <div className="relative mt-16 max-w-5xl mx-auto animate-float">
+          <div className="relative mt-12 sm:mt-16 max-w-5xl mx-auto animate-float">
             <div className="absolute -inset-8 gradient-bg opacity-30 blur-3xl rounded-full" />
-            <div className="relative glass-strong rounded-2xl p-2 shadow-2xl">
-              <div className="rounded-xl bg-card/60 p-6 text-left">
+            <div className="relative glass-strong rounded-2xl p-1.5 sm:p-2 shadow-2xl">
+              <div className="rounded-xl bg-card/60 p-3 sm:p-6 text-left">
                 <div className="flex items-center gap-2 mb-4">
-                  <div className="h-2.5 w-2.5 rounded-full bg-destructive/70" />
-                  <div className="h-2.5 w-2.5 rounded-full bg-accent/70" />
-                  <div className="h-2.5 w-2.5 rounded-full bg-chart-5/70" />
-                  <div className="ml-3 text-xs text-muted-foreground font-mono">hackmate.ai/room/neon-2026</div>
+                  <div className="h-2.5 w-2.5 rounded-full bg-destructive/70 shrink-0" />
+                  <div className="h-2.5 w-2.5 rounded-full bg-accent/70 shrink-0" />
+                  <div className="h-2.5 w-2.5 rounded-full bg-chart-5/70 shrink-0" />
+                  <div className="ml-2 sm:ml-3 text-[10px] sm:text-xs text-muted-foreground font-mono truncate">hackmate.ai/room/neon-2026</div>
                 </div>
-                <div className="grid sm:grid-cols-3 gap-3">
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 sm:gap-3">
                   {[
                     { l: "Idea locked", v: "VoiceBridge", i: Lightbulb },
                     { l: "Tasks shipped", v: "12 / 18", i: Kanban },
                     { l: "Time left", v: "14h 22m", i: Clock },
                   ].map(s => (
-                    <div key={s.l} className="glass rounded-xl p-4">
-                      <div className="flex items-center gap-2 text-xs text-muted-foreground"><s.i className="h-3.5 w-3.5" />{s.l}</div>
-                      <div className="mt-1 text-2xl font-display font-bold">{s.v}</div>
+                    <div key={s.l} className="glass rounded-xl p-3 sm:p-4">
+                      <div className="flex items-center gap-2 text-xs text-muted-foreground"><s.i className="h-3.5 w-3.5 shrink-0" />{s.l}</div>
+                      <div className="mt-1 text-xl sm:text-2xl font-display font-bold">{s.v}</div>
                     </div>
                   ))}
                 </div>
-                <div className="mt-3 glass rounded-xl p-4">
-                  <div className="text-xs text-muted-foreground mb-2 flex items-center gap-1"><Sparkles className="h-3 w-3 text-primary" /> AI assistant</div>
-                  <div className="text-sm">Your latency budget is 600ms. Whisper-tiny on the edge is overkill — switch to <code className="font-mono text-primary">distil-whisper</code> and reclaim 180ms for the glossary lookup.</div>
+                <div className="mt-3 glass rounded-xl p-3 sm:p-4">
+                  <div className="text-xs text-muted-foreground mb-2 flex items-center gap-1"><Sparkles className="h-3 w-3 text-primary shrink-0" /> AI assistant</div>
+                  <div className="text-xs sm:text-sm break-words">Your latency budget is 600ms. Whisper-tiny on the edge is overkill — switch to <code className="font-mono text-primary break-all">distil-whisper</code> and reclaim 180ms for the glossary lookup.</div>
                 </div>
               </div>
             </div>
