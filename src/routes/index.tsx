@@ -71,7 +71,7 @@ function Landing() {
           </nav>
           <div className="ml-auto flex items-center gap-1.5 sm:gap-2">
             <ThemeToggle />
-            <Link to="/auth" className="hidden sm:block"><Button variant="ghost" size="sm">Log in</Button></Link>
+            <Link to="/auth"><Button variant="ghost" size="sm">Log in</Button></Link>
             <Link to="/auth"><Button size="sm" className="gradient-bg text-primary-foreground border-0 glow whitespace-nowrap">Get started</Button></Link>
           </div>
         </div>
