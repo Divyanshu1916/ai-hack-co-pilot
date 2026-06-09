@@ -107,7 +107,7 @@ function Landing() {
           {/* Hero mock card */}
           <div className="relative mt-12 sm:mt-16 max-w-5xl mx-auto animate-float">
             <div className="absolute -inset-8 gradient-bg opacity-30 blur-3xl rounded-full" />
-            <div className="relative glass-strong rounded-2xl p-1.5 sm:p-2 shadow-2xl">
+            <div className="relative glass-strong rounded-2xl p-1.5 sm:p-2 shadow-2xl aurora-border">
               <div className="rounded-xl bg-card/60 p-3 sm:p-6 text-left">
                 <div className="flex items-center gap-2 mb-4">
                   <div className="h-2.5 w-2.5 rounded-full bg-destructive/70 shrink-0" />
