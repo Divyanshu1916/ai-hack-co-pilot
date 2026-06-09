@@ -145,15 +145,25 @@ function Landing() {
           <p className="mt-4 text-muted-foreground text-lg">No more juggling Notion, Slack, GitHub, and Canva. HackMate ships every hackathon-specific tool in one window.</p>
         </div>
         <div className="mt-14 grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-          {features.map((f, i) => (
-            <div key={f.title} className="group glass rounded-2xl p-6 hover:-translate-y-1 transition-all duration-300" style={{ animationDelay: `${i * 50}ms` }}>
-              <div className="h-11 w-11 rounded-xl gradient-bg grid place-items-center glow mb-4">
-                <f.icon className="h-5 w-5 text-primary-foreground" />
+          {features.map((f, i) => {
+            const card = (
+              <div className="group glass rounded-2xl p-6 hover:-translate-y-1 transition-all duration-300 h-full" style={{ animationDelay: `${i * 50}ms` }}>
+                <div className="h-11 w-11 rounded-xl gradient-bg grid place-items-center glow mb-4">
+                  <f.icon className="h-5 w-5 text-primary-foreground" />
+                </div>
+                <h3 className="font-display font-semibold text-lg flex items-center gap-2">
+                  {f.title}
+                  {f.to && <ArrowRight className="h-4 w-4 opacity-0 group-hover:opacity-100 transition-opacity" />}
+                </h3>
+                <p className="text-sm text-muted-foreground mt-1">{f.desc}</p>
               </div>
-              <h3 className="font-display font-semibold text-lg">{f.title}</h3>
-              <p className="text-sm text-muted-foreground mt-1">{f.desc}</p>
-            </div>
-          ))}
+            );
+            return f.to ? (
+              <Link key={f.title} to={f.to} params={f.params} className="block">{card}</Link>
+            ) : (
+              <div key={f.title}>{card}</div>
+            );
+          })}
         </div>
       </section>
 
