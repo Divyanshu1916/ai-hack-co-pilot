@@ -273,10 +273,12 @@ function Landing() {
                 href={link.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-1.5 hover:text-foreground transition-colors"
+                className="group flex items-center gap-1.5 px-3 py-1.5 rounded-full glass hover:bg-primary/10 hover:text-foreground transition-all duration-300 hover:scale-105 hover:shadow-[0_0_12px_rgba(var(--primary-rgb),0.25)]"
               >
-                {link.icon}
-                <span>{link.label}</span>
+                <span className="transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-6">
+                  {link.icon}
+                </span>
+                <span className="font-medium">{link.label}</span>
               </a>
             ))}
           </div>
