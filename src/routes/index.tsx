@@ -139,10 +139,10 @@ function Landing() {
       </section>
 
       {/* Features */}
-      <section id="features" className="max-w-[1400px] mx-auto px-4 sm:px-6 py-20 sm:py-28">
+      <section id="features" className="max-w-[1400px] mx-auto px-4 sm:px-6 py-14 sm:py-28">
         <div className="text-center max-w-2xl mx-auto">
-          <h2 className="text-3xl sm:text-5xl font-bold tracking-tight">Every tool you wished you had at 3am</h2>
-          <p className="mt-4 text-muted-foreground text-lg">No more juggling Notion, Slack, GitHub, and Canva. HackMate ships every hackathon-specific tool in one window.</p>
+          <h2 className="text-2xl sm:text-5xl font-bold tracking-tight">Every tool you wished you had at 3am</h2>
+          <p className="mt-3 sm:mt-4 text-muted-foreground text-base sm:text-lg">No more juggling Notion, Slack, GitHub, and Canva. HackMate ships every hackathon-specific tool in one window.</p>
         </div>
         <div className="mt-14 grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {features.map((f, i) => {
