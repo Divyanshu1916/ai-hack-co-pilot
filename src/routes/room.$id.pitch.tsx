@@ -1,10 +1,10 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link, useParams } from "@tanstack/react-router";
 import { useState } from "react";
 import { slides as seed } from "@/lib/mock-data";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { Input } from "@/components/ui/input";
-import { Sparkles, Download, Play, ChevronLeft, ChevronRight, Presentation } from "lucide-react";
+import { Sparkles, Download, Play, ChevronLeft, ChevronRight, Presentation, Gavel } from "lucide-react";
 import { toast } from "sonner";
 
 export const Route = createFileRoute("/room/$id/pitch")({
@@ -20,6 +20,7 @@ const questions = [
 ];
 
 function Pitch() {
+  const { id } = useParams({ from: "/room/$id/pitch" });
   const [slides, setSlides] = useState(seed);
   const [active, setActive] = useState(0);
   const [judgeMode, setJudgeMode] = useState(false);
@@ -33,10 +34,15 @@ function Pitch() {
           <h1 className="text-3xl font-bold tracking-tight flex items-center gap-2"><Presentation className="h-7 w-7 text-primary" /> Pitch studio</h1>
           <p className="text-muted-foreground mt-1">Auto-generated 5-slide deck. Edit inline. Rehearse with judge-mode Q&A.</p>
         </div>
-        <div className="flex gap-2">
+        <div className="flex flex-wrap gap-2">
           <Button onClick={() => { setSlides(seed); toast.success("Deck regenerated from latest brief"); }} variant="outline" className="glass">
             <Sparkles className="h-4 w-4 mr-1 text-primary" /> Regenerate
           </Button>
+          <Link to="/room/$id/judge-sim" params={{ id }}>
+            <Button variant="outline" className="glass">
+              <Gavel className="h-4 w-4 mr-1 text-accent" /> Practice with AI Judge
+            </Button>
+          </Link>
           <Button onClick={() => toast.success("Exported to pitch-deck.pdf")} className="gradient-bg text-primary-foreground border-0 glow">
             <Download className="h-4 w-4 mr-1" /> Export PDF
           </Button>
