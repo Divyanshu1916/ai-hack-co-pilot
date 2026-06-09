@@ -197,10 +197,10 @@ function Dashboard() {
   const handleQuickAction = (action: string) => {
     switch (action) {
       case "create":
-        toast.info("Use the 'New room' button above to create a room.");
+        navigate({ to: "/room/new" });
         break;
       case "join":
-        toast.info("Enter a room code to join.");
+        toast.info("Ask a teammate for a room code to join.");
         break;
       case "idea":
         if (firstActiveRoom) {
