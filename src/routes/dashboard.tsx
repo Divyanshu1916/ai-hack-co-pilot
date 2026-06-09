@@ -492,6 +492,83 @@ function Dashboard() {
               ))}
             </div>
           </div>
+
+          {/* Hackathons List */}
+          <div className="glass rounded-2xl p-5">
+            <div className="flex items-center gap-2 mb-4">
+              <Calendar className="h-4 w-4 text-primary" />
+              <h3 className="font-display font-semibold">Hackathons List</h3>
+            </div>
+            <div className="space-y-4">
+              {upcomingHackathons.map((h) => (
+                <div key={h.id} className="rounded-xl p-3 bg-accent/10 border border-accent/20">
+                  <div className="flex items-start justify-between gap-2">
+                    <div className="min-w-0">
+                      <p className="text-sm font-semibold truncate">{h.name}</p>
+                      <div className="flex items-center gap-1.5 mt-1">
+                        <MapPin className="h-3 w-3 text-muted-foreground" />
+                        <p className="text-[11px] text-muted-foreground">{h.location}</p>
+                      </div>
+                      <p className="text-[11px] text-muted-foreground mt-0.5">{h.date}</p>
+                    </div>
+                  </div>
+                  <div className="flex flex-wrap gap-1 mt-2">
+                    {h.tags.map((t) => (
+                      <span
+                        key={t}
+                        className="text-[10px] px-2 py-0.5 rounded-full glass"
+                      >
+                        {t}
+                      </span>
+                    ))}
+                  </div>
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    className="mt-3 w-full glass text-xs"
+                    onClick={() =>
+                      toast.success(
+                        h.registered
+                          ? "Already registered!"
+                          : "Registered successfully"
+                      )
+                    }
+                  >
+                    {h.registered ? "Registered" : "Register"}
+                  </Button>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Past Rooms */}
+          <div className="glass rounded-2xl p-5">
+            <div className="flex items-center gap-2 mb-4">
+              <Trophy className="h-4 w-4 text-primary" />
+              <h3 className="font-display font-semibold">Past Rooms</h3>
+            </div>
+            <div className="space-y-3">
+              {past.map((r) => (
+                <Link
+                  key={r.id}
+                  to="/room/$id"
+                  params={{ id: r.id }}
+                  className="group flex items-center gap-3 rounded-xl p-3 hover:bg-accent/20 transition-colors"
+                >
+                  <div className="h-8 w-8 rounded-lg bg-muted grid place-items-center shrink-0">
+                    <Trophy className="h-4 w-4 text-muted-foreground" />
+                  </div>
+                  <div className="min-w-0 flex-1">
+                    <p className="text-sm font-medium truncate">{r.name}</p>
+                    <p className="text-[11px] text-muted-foreground">{r.event}</p>
+                  </div>
+                  <div className="text-xs font-semibold text-muted-foreground">
+                    {r.health}%
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </div>
         </aside>
       </div>
     </AppShell>
