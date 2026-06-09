@@ -189,7 +189,7 @@ function Landing() {
       </section>
 
       {/* Testimonials */}
-      <section className="max-w-[1400px] mx-auto px-4 sm:px-6 py-20">
+      <section className="max-w-[1400px] mx-auto px-4 sm:px-6 py-14 sm:py-20">
         <div className="grid md:grid-cols-3 gap-4">
           {testimonials.map(t => (
             <figure key={t.a} className="glass rounded-2xl p-6">
