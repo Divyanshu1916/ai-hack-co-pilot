@@ -158,7 +158,7 @@ function Landing() {
         <div className="mt-14 grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {features.map((f, i) => {
             const card = (
-              <div className="group glass rounded-2xl p-6 hover:-translate-y-1 transition-all duration-300 h-full" style={{ animationDelay: `${i * 50}ms` }}>
+              <div className="group glass aurora-border rounded-2xl p-6 hover:-translate-y-1 transition-all duration-300 h-full" style={{ animationDelay: `${i * 50}ms` }}>
                 <div className="h-11 w-11 rounded-xl gradient-bg grid place-items-center glow mb-4">
                   <f.icon className="h-5 w-5 text-primary-foreground" />
                 </div>
