@@ -168,9 +168,9 @@ function Landing() {
       </section>
 
       {/* How it works */}
-      <section id="how" className="max-w-[1400px] mx-auto px-4 sm:px-6 py-20">
-        <div className="text-center max-w-2xl mx-auto mb-14">
-          <h2 className="text-3xl sm:text-5xl font-bold tracking-tight">From hour zero to demo day</h2>
+      <section id="how" className="max-w-[1400px] mx-auto px-4 sm:px-6 py-14 sm:py-20">
+        <div className="text-center max-w-2xl mx-auto mb-10 sm:mb-14">
+          <h2 className="text-2xl sm:text-5xl font-bold tracking-tight">From hour zero to demo day</h2>
         </div>
         <div className="grid md:grid-cols-4 gap-4">
           {[
