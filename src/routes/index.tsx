@@ -253,10 +253,10 @@ function Landing() {
       </section>
 
       <footer className="border-t border-border/50 mt-10">
-        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 py-10 flex flex-col sm:flex-row gap-4 items-center justify-between text-sm text-muted-foreground">
+        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 py-8 sm:py-10 flex flex-col sm:flex-row gap-4 items-center justify-between text-sm text-muted-foreground text-center sm:text-left">
           <Logo />
-          <div>© 2026 HackMate AI — Made for hackers, by hackers.</div>
-          <div className="flex gap-4">
+          <div className="order-3 sm:order-2">© 2026 HackMate AI — Made for hackers, by hackers.</div>
+          <div className="flex gap-4 order-2 sm:order-3">
             <a href="#" className="hover:text-foreground">Twitter</a>
             <a href="#" className="hover:text-foreground">GitHub</a>
             <a href="#" className="hover:text-foreground">Discord</a>
